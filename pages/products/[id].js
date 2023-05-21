@@ -20,11 +20,11 @@ export default function Products() {
     getProduct(id);
   }, [id]);
 
+  //맨 처음엔 product 값이 없을테니 아무것도 렌더링 해주지 않겠다!
   if (!product) return null;
 
   return (
     <>
-      <div>Products {id} 페이지</div>
       <h3>{product.name}</h3>
       <h3>{product.price}원</h3>
       <img src={product.imgUrl} alt={product.name} />

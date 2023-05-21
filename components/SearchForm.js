@@ -1,3 +1,4 @@
+import { StButton, StForm, StInput } from "@/styles/styled";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -16,9 +17,9 @@ export default function SearchForm({ initialValue = "" }) {
     router.push(`/search?q=${value}`);
   };
   return (
-    <form onSubmit={handlerSubmit}>
-      <input name="q" value={value} onChange={handlerChange} />
-      <button>검색👁️‍🗨️</button>
-    </form>
+    <StForm onSubmit={handlerSubmit}>
+      <StInput name="q" value={value} onChange={handlerChange} />
+      <StButton>검색👁️‍🗨️</StButton>
+    </StForm>
   );
 }

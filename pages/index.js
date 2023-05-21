@@ -1,4 +1,4 @@
-import { Row } from "@/components/Flex";
+import { Column, Row } from "@/components/Flex";
 import Page from "@/components/Page";
 import SearchForm from "@/components/SearchForm";
 import Link from "next/link";
@@ -9,21 +9,23 @@ export default function Home() {
     <>
       <Sttitle>ITEM</Sttitle>
       <Page>
-        <SearchForm />
-        <ul>
-          <li>
-            <StLink href="products/1">1</StLink>
-          </li>
-          <li>
-            <StLink href="products/2">2</StLink>
-          </li>
-          <li>
-            <StLink href="products/3">3</StLink>
-          </li>
-          <li>
-            <StLink href="https://www.naver.com/">naver</StLink>
-          </li>
-        </ul>
+        <Column>
+          <SearchForm />
+          <ul>
+            <li>
+              <StLink href="products/1">1</StLink>
+            </li>
+            <li>
+              <StLink href="products/2">2</StLink>
+            </li>
+            <li>
+              <StLink href="products/3">3</StLink>
+            </li>
+            <li>
+              <StLink href="https://www.naver.com/">naver</StLink>
+            </li>
+          </ul>
+        </Column>
       </Page>
     </>
   );
