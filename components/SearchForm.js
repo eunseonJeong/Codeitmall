@@ -19,7 +19,7 @@ export default function SearchForm({ initialValue = "" }) {
   return (
     <StForm onSubmit={handlerSubmit}>
       <StInput name="q" value={value} onChange={handlerChange} />
-      <StButton>검색👁️‍🗨️</StButton>
+      <StButton>검색 👁️‍🗨️</StButton>
     </StForm>
   );
 }

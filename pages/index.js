@@ -1,17 +1,35 @@
-import { Column, Row } from "@/components/Flex";
-import Page from "@/components/Page";
+import { useEffect, useState } from "react";
+import ProductList from "@/components/\bProductList";
 import SearchForm from "@/components/SearchForm";
-import Link from "next/link";
+import axios from "../lib/axios";
+
+import { Column } from "@/components/Flex";
+import Page from "@/components/Page";
 import styled from "styled-components";
+import Header from "@/components/Header";
 
 export default function Home() {
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    const responce = await axios.get("/products");
+    const nextProduct = responce.data.results;
+    setProducts(nextProduct);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <>
+      <Header />
       <Sttitle>ITEM</Sttitle>
       <Page>
         <Column>
           <SearchForm />
-          <ul>
+          <ProductList products={products} />
+          {/* <ul>
             <li>
               <StLink href="products/1">1</StLink>
             </li>
@@ -24,7 +42,7 @@ export default function Home() {
             <li>
               <StLink href="https://www.naver.com/">naver</StLink>
             </li>
-          </ul>
+          </ul> */}
         </Column>
       </Page>
     </>
@@ -37,10 +55,4 @@ const Sttitle = styled.div`
   color: #fff;
 
   text-align: center;
-`;
-
-const StLink = styled(Link)`
-  font-size: 2rem;
-  font-weight: 600;
-  color: #fff;
 `;
