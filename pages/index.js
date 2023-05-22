@@ -23,7 +23,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       <Sttitle>ITEM</Sttitle>
       <Page>
         <Column>
