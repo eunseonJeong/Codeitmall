@@ -2,6 +2,7 @@ import SizeReviewList from "@/components/SizeReviewList";
 import axios from "../../lib/axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -35,7 +36,23 @@ export default function Products() {
     <>
       <h3>{products.name}</h3>
       <h3>{products.price}원</h3>
-      <img src={products.imgUrl} alt={products.name} />
+      <div
+        style={{
+          position: "relative",
+          width: "50%",
+          height: "500px",
+        }}
+      >
+        <Image
+          fill
+          src={products.imgUrl}
+          alt={products.name}
+          style={{
+            objectFit: "cover",
+          }}
+        />
+      </div>
+
       <SizeReviewList sizeReviews={sizeReviews} />
     </>
   );
