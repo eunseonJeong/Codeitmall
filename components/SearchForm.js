@@ -11,10 +11,9 @@ export default function SearchForm({ initialValue = "" }) {
   const handlerSubmit = (e) => {
     e.preventDefault();
     if (!value) {
-      router.push("/");
-      return;
+      return router.push("/");
     }
-    router.push(`/search?q=${value}`);
+    return router.push(`/search?q=${value}`);
   };
   return (
     <StForm onSubmit={handlerSubmit}>

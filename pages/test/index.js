@@ -1,34 +1,24 @@
+import Image from "next/image";
 import React from "react";
 
 export default function Test() {
   return (
-    <div>
-      {/* <input type="file" /> */}
-      <div
-        onDragOver={(event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          console.log("type", "over");
+    <div
+      style={{
+        position: "relative",
+        width: "50%",
+        height: "500px",
+      }}
+    >
+      <p>사진</p>
+      <Image
+        fill
+        src="/IMG.png"
+        alt="고양이"
+        style={{
+          objectFit: "cover",
         }}
-        onDrop={(event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          console.log("type", "drop");
-        }}
-        onDragEnter={(event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          console.log("type", "enter");
-        }}
-        onDragLeave={(event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          console.log("type", "leave");
-        }}
-        className="dragAndDrop"
-      >
-        <p>드랍</p>
-      </div>
+      />
     </div>
   );
 }

@@ -11,14 +11,14 @@ export default function Products() {
   const { id } = router.query;
 
   const getProduct = async (targetId) => {
-    const responce = await axios.get(`/products/${targetId}`);
-    const nextProduct = responce.data;
+    const response = await axios.get(`/products/${targetId}`);
+    const nextProduct = response.data;
     setProducts(nextProduct);
   };
 
   const getSizeReviews = async (targetId) => {
-    const responce = await axios.get(`/size_reviews/?product_id=${targetId}`);
-    const nextSizeReviews = responce.data.results;
+    const response = await axios.get(`/size_reviews/?product_id=${targetId}`);
+    const nextSizeReviews = response.data.results;
     setSizwReviews(nextSizeReviews);
   };
 

@@ -6,14 +6,14 @@ import React, { useEffect, useState } from "react";
 
 export default function Search() {
   const router = useRouter();
-  const { q } = router.query;
+  const q = router.query["q"];
   const [products, setProducts] = useState([]);
 
   const getProducts = async (query) => {
     try {
-      const responce = await axios.get(`/products/?q=${query}`);
-      console.log("서치 responce:", responce);
-      const nextProducts = responce.data.results;
+      const response = await axios.get(`/products/?q=${query}`);
+      console.log("서치 response:", response);
+      const nextProducts = response.data.results;
       setProducts(nextProducts);
     } catch (error) {
       console.log(error);
