@@ -16,6 +16,7 @@ export default function Search() {
       const nextProducts = responce.data.results;
       setProducts(nextProducts);
     } catch (error) {
+      console.log(error);
       alert("찾으시는 검색 결과가 없습니다.");
     }
   };

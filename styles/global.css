@@ -1,4 +1,14 @@
 body {
   background-color: #ffdbdb;
-  color: fff;
+  color: white;
+}
+
+body.ligth {
+  background-color: #ededed;
+  color: black;
+}
+
+body.dark {
+  background-color: #121212;
+  color: white;
 }

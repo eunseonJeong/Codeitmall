@@ -1,21 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export default function Test() {
-  // const onClickHandler = () => {
-  //   alert("클릭!!!");
-  // };
-
-  // const onDownHandler = () => {
-  //   return false;
-  // };
-  const onClickHandler = () => {
-    alert("더블 클릭!");
-  };
-
   return (
-    <>
-      {/* <button>테스트</button> */}
-      <button onDoubleClick={onClickHandler}>더블 클릭해야 반응합니다.</button>
-    </>
+    <div>
+      {/* <input type="file" /> */}
+      <div
+        onDragOver={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          console.log("type", "over");
+        }}
+        onDrop={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          console.log("type", "drop");
+        }}
+        onDragEnter={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          console.log("type", "enter");
+        }}
+        onDragLeave={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          console.log("type", "leave");
+        }}
+        className="dragAndDrop"
+      >
+        <p>드랍</p>
+      </div>
+    </div>
   );
 }
