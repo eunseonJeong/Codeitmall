@@ -21,7 +21,7 @@ export default function SearchForm({ initialValue = "" }) {
         name="q"
         value={value}
         onChange={handlerChange}
-        placeholder="검색하세요."
+        placeholder="찾고 싶은 옷을 검색 해보세요."
       />
       <StButton>검색 👁️‍🗨️</StButton>
     </StForm>
