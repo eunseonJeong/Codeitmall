@@ -5,6 +5,7 @@ import React, { useState } from "react";
 export default function SearchForm({ initialValue = "" }) {
   const router = useRouter();
   const [value, setValue] = useState(initialValue);
+
   const handlerChange = (e) => {
     setValue(e.target.value);
   };

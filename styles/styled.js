@@ -1,17 +1,19 @@
 import Link from "next/link";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 export const StForm = styled.form`
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  gap: 15px;
 `;
 
 export const StInput = styled.input`
-  border: none;
-  border-radius: 5px;
-
-  width: 20vw;
-  height: 2.5vw;
+  width: 45vw;
+  padding: 0px 30px;
+  color: #f9f9f9;
+  font-size: 18px;
+  background-color: #252525;
+  border: 1px solid #505050;
+  border-radius: 10px;
+  outline: none;
 `;
 
 export const StButton = styled.button`

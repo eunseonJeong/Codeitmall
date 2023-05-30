@@ -15,12 +15,12 @@ export default function Header() {
 }
 
 const StHeader = styled.header`
+  padding: 31px 0;
   border-bottom: 1px solid #1f1f1f;
 `;
 
 const StHeaderContainer = styled.header`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 26px 0;
+  justify-content: space-between;
 `;

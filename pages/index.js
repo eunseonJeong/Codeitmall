@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProductList from "@/components/\bProductList";
+import ProductList from "@/components/ProductList";
 import SearchForm from "@/components/SearchForm";
 import axios from "../lib/axios";
 
