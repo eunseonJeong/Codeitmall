@@ -5,6 +5,7 @@ import axios from "../lib/axios";
 
 import { Column } from "@/components/Flex";
 import Page from "@/components/Page";
+import Head from "next/head";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -21,6 +22,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Codeitmall</title>
+      </Head>
       <Page>
         <Column>
           <SearchForm />

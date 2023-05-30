@@ -1,6 +1,7 @@
 import ProductList from "@/components/\bProductList";
 import SearchForm from "@/components/SearchForm";
 import axios from "axios";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -27,7 +28,9 @@ export default function Search() {
 
   return (
     <>
-      <h1>검색 페이지</h1>
+      <Head>
+        <title>{q} 검색 결과 - Codeitmall </title>
+      </Head>
       <SearchForm initialValue={q} />
       <h1>{q} 검색 결과</h1>
       <ProductList products={products} />
