@@ -1,6 +1,6 @@
 import Container from "@/components/Container";
 import Header from "@/components/Header";
-import { ThemeProvider } from "@/lib/ThemeContext";
+import { ThemeProvider } from "@/lib/useTheme";
 import "@/styles/global.css";
 import Head from "next/head";
 

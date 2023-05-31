@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { styled } from "styled-components";
@@ -8,7 +9,7 @@ export default function ProductList({ products = [] }) {
       {products.map((product) => (
         <li key={product.id}>
           <StProduct href={`products/${product.id}`}>
-            <img
+            <Image
               src={product.imgUrl}
               alt={product.name}
               width="300"
