@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import styles from "./Dropdown.module.css";
+import styled, { css } from "styled-components";
 
 export default function Dropdown({
   className,
@@ -33,37 +33,108 @@ export default function Dropdown({
     };
   }, []);
 
-  const classNames = `${styles.input} ${
-    isOpen ? styles.opened : ""
+  const classNames = `${Input.styledComponentId} ${
+    isOpen ? "opened" : ""
   } ${className}`;
   const selectedOption = options.find((option) => option.value === value);
 
   return (
-    <div
+    <Input
       className={classNames}
       onClick={handleInputClick}
       onBlur={handleBlur}
       ref={inputRef}
     >
       {selectedOption.label}
-      <span className={styles.arrow}>▲</span>
-      <div className={styles.options}>
+      <Arrow className={isOpen ? "opened" : ""}>▲</Arrow>
+      <Options className={isOpen ? "opened" : ""}>
         {options.map((option) => {
           const selected = value === option.value;
-          const className = `${styles.option} ${
-            selected ? styles.selected : ""
+          const className = `${Option.styledComponentId} ${
+            selected ? "selected" : ""
           }`;
           return (
-            <div
+            <Option
               className={className}
               key={option.value}
               onClick={() => onChange(name, option.value)}
             >
               {option.label}
-            </div>
+            </Option>
           );
         })}
-      </div>
-    </div>
+      </Options>
+    </Input>
   );
 }
+
+const Input = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  background: #252525;
+  padding: 15px 26px;
+  color: #b5b5b5;
+  width: 20%;
+
+  ${({ theme }) =>
+    theme === "light" &&
+    css`
+      background-color: #e1e1e1;
+      color: #505050;
+    `}
+`;
+
+const Arrow = styled.span`
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+
+  ${Input}.opened & {
+    transform: rotate(0);
+  }
+`;
+
+const Options = styled.div`
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  z-index: 1;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 10px;
+  background-color: #252525;
+  padding: 15px 16px;
+  overflow: hidden;
+  color: #b5b5b5;
+
+  ${({ theme }) =>
+    theme === "light" &&
+    css`
+      background-color: #e1e1e1;
+      color: #505050;
+    `}
+
+  ${Input}.opened & {
+    transform: scaleY(1);
+  }
+`;
+
+const Option = styled.div`
+  cursor: pointer;
+  padding: 10px;
+
+  ${({ selected, theme }) =>
+    (selected || theme === "light") &&
+    css`
+      background-color: #505050;
+
+      :hover {
+        background-color: #cfcfcf;
+      }
+    `}
+`;
