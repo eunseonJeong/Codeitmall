@@ -41,33 +41,13 @@
 //     </>
 //   );
 // }
-
-const StTitle = styled.title`
-  padding: 0 10px;
-  color: #b5b5b5;
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 38px;
-`;
-
-const StSpan = styled.span`
-  color: #f9f9f9;
-  font-weight: 700;
-`;
-
-const StProduct = styled.div`
-  margin: 30px 0 60px;
-`;
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import ProductList from "@/components/ProductList";
 import SearchForm from "@/components/SearchForm";
 import axios from "@/lib/axios";
-import { styled } from "styled-components";
-import Page from "@/components/Page";
-import { Column } from "@/components/Flex";
+import styles from "@/styles/Search.module.css";
 
 export default function Search() {
   const [products, setProducts] = useState([]);
@@ -87,19 +67,13 @@ export default function Search() {
   return (
     <>
       <Head>
-        <title>{q} 검색 결과 - Codeitmall </title>
+        <title>{q} 검색 결과 - Codeitmall</title>
       </Head>
-      <Page>
-        <Column>
-          <SearchForm initialValue={q} />
-          <StTitle>
-            <StSpan>{q} 검색 결과</StSpan>
-          </StTitle>
-          <StProduct>
-            <ProductList products={products} />
-          </StProduct>
-        </Column>
-      </Page>
+      <SearchForm initialValue={q} />
+      <h2 className={styles.title}>
+        <span className={styles.keyword}>{q}</span> 검색 결과
+      </h2>
+      <ProductList className={styles.productList} products={products} />
     </>
   );
 }

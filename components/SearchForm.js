@@ -27,6 +27,7 @@ export default function SearchForm({ initialValue = "" }) {
         value={value}
         placeholder="찾고 싶은 옷을 검색해보세요."
         onChange={handleChange}
+        required
       />
       <button className={styles.searchButton}>검색</button>
     </form>

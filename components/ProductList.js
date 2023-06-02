@@ -7,7 +7,7 @@ import heartImage from "@/public/heart.svg";
 export default function ProductList({ className = "", products }) {
   return (
     <ul className={`${styles.productList} ${className}`}>
-      {products.map((product) => (
+      {products?.map((product) => (
         <li key={product.id}>
           <Link className={styles.product} href={`/products/${product.id}`}>
             <div className={styles.image}>

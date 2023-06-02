@@ -29,6 +29,11 @@
   border-radius: 10px;
 }
 
+.searchButton:hover {
+  color: #f9f9f9;
+  background-color: #505050;
+}
+
 :global(.light) .searchButton {
   color: #f9f9f9;
   background-color: #505050;
