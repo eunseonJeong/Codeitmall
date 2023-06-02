@@ -1,45 +1,43 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { styled } from "styled-components";
+import styles from "./styles/ProductList.module.css";
+import StarRating from "./StarRating";
+import heartImage from "@/public/heart.svg";
 
-export default function ProductList({ products = [] }) {
+export default function ProductList({ className = "", products }) {
   return (
-    <StProductList>
+    <ul className={`${styles.productList} ${className}`}>
       {products.map((product) => (
         <li key={product.id}>
-          <StProduct href={`products/${product.id}`}>
-            <Image
-              src={product.imgUrl}
-              alt={product.name}
-              width="300"
-              height="300"
-            />
-            <StProductName>{product.name}</StProductName>
-            {product.price}원
-          </StProduct>
+          <Link className={styles.product} href={`/products/${product.id}`}>
+            <div className={styles.image}>
+              <Image src={product.imgUrl} fill alt={product.name} />
+            </div>
+            <div className={styles.content}>
+              <div>
+                <span className={styles.name}>{product.name}</span>
+                <div className={styles.prices}>
+                  <span className={styles.originalPrice}>
+                    {product.price.toLocaleString()}원
+                  </span>
+                  {product.salePrice.toLocaleString()}원
+                </div>
+              </div>
+              <hr className={styles.divider} />
+              <div>
+                <div className={styles.starRating}>
+                  <StarRating value={product.starRating} />
+                  {product.starRatingCount.toLocaleString()}
+                </div>
+                <div className={styles.likeCount}>
+                  <Image src={heartImage} alt="좋아요" />
+                  {product.likeCount.toLocaleString()}
+                </div>
+              </div>
+            </div>
+          </Link>
         </li>
       ))}
-    </StProductList>
+    </ul>
   );
 }
-
-const StProductList = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  list-style: none;
-  padding: 0;
-  gap: 24px;
-`;
-
-const StProduct = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  text-decoration: none;
-`;
-const StProductName = styled.span`
-  font-size: 20px;
-  font-weight: 800;
-`;

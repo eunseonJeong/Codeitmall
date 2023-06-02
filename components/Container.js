@@ -1,11 +1,8 @@
-import { styled } from "styled-components";
+import styles from "./styles/Container.module.css";
 
-export default function Container({ children }) {
-  return <StContainer>{children}</StContainer>;
+export default function Container({ className = "", page = false, children }) {
+  const classNames = `${styles.container} ${
+    page ? styles.page : ""
+  } ${className}`;
+  return <div className={classNames}>{children}</div>;
 }
-
-const StContainer = styled.div`
-  margin: 0 auto;
-  width: 100%;
-  max-width: 950px;
-`;
