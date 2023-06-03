@@ -5,7 +5,7 @@ import axios from "@/lib/axios";
 import styles from "@/styles/Search.module.css";
 
 export async function getServerSideProps(context) {
-  const q = context.query;
+  const q = context.query["q"];
 
   const response = await axios.get(`/products/?q=${q}`);
   const products = response.data.results;

@@ -1,7 +1,6 @@
 import formatDate from "@/lib/formaDate";
 import { sizeReviewLabels } from "@/lib/sizeReviewLabels";
 import styles from "./styles/SizeReviewList.module.css";
-
 export default function SizeReviewList({ sizeReviews }) {
   return (
     <ul className={styles.sizeReviewList}>
