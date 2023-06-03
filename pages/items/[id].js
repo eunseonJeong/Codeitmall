@@ -3,6 +3,7 @@ import axios from "../../lib/axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Spinner from "@/components/Spinner";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -30,7 +31,12 @@ export default function Products() {
   }, [id]);
 
   //맨 처음엔 product 값이 없을테니 아무것도 렌더링 해주지 않겠다!
-  if (!products) return null;
+  if (!products)
+    return (
+      <div className={styles.loading}>
+        <Spinner />
+      </div>
+    );
 
   return (
     <>

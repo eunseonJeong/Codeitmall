@@ -1,6 +1,6 @@
 import Image from "next/image";
 import spinnerImg from "@/public/spinner.svg";
-import styles from "./styles/Spinner.module.css";
+import styles from "./styles/Sprinner.module.css";
 
 export default function Spinner({ className = "" }) {
   return (
